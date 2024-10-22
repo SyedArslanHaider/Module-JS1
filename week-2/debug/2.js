@@ -1,8 +1,6 @@
 // Predict and explain first...
-
-const num = 103;
-
-function getLastDigit() {
+// pass a parameter inside the function so return num.toString().Slice(-1) that takes the last digit for the user  
+function getLastDigit(num) {
   return num.toString().slice(-1);
 }
 

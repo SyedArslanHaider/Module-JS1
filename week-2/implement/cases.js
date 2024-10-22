@@ -15,3 +15,10 @@
 
 // Come up with a clear, simple name for the function
 // Use the string documentation to help you plan your solution
+function uprCaseString(str){
+const uprCase =str.toUpperCase();
+const uprCaseStringSlash = uprCase.replace(/ /g,"_");
+return uprCaseStringSlash;
+}
+console.log(uprCaseString("hi arslan"))
+console.log(uprCaseString("A quick brown fox jump over a lazy dog"));
