@@ -20,6 +20,13 @@ console.log(find("code your future", "z"));
 // Pay particular attention to the following:
 
 // a) How the index variable updates during the call to find
+//    the index value at start is 0 and string "code your future" = 16 so index value is ++ according to the condition
+
 // b) What is the if statement used to check
+//   until str[index] === "u" because U is at position 7 so it returns 7
+
 // c) Why is index++ being used?
+//   in each iteration the value of index is inx=creased by one until the condition is true
+
 // d) What is the condition index < str.length used for?
+//    str.length means that the it takes string length that is total is 17 in this case 
