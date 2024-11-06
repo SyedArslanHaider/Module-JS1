@@ -37,12 +37,40 @@ function validPassword(pass){
          return "Password is valid";
     }
 }
-const previousPasswords = ["Password123!", "abcDE1$", "Valid1$"];
-console.log(validPassword("Abcde", previousPasswords));         // "Error: Password must contain at least one number (0-9)"
-console.log(validPassword("ABCDE", previousPasswords));         // "Error: Password must contain at least one lowercase letter (a-z)"
-console.log(validPassword("abcd1", previousPasswords));         // "Error: Password must have at least 5 characters"
-console.log(validPassword("Valid1$", previousPasswords));       // "Error: Password must not be any of the previous passwords"
-console.log(validPassword("lowercase1$", previousPasswords));   // "Error: Password must contain at least one uppercase letter (A-Z)"
-console.log(validPassword("12345!", previousPasswords));        // "Error: Password must contain at least one uppercase letter (A-Z)"
-console.log(validPassword("Valid1$", previousPasswords));       // "Error: Password must not be any of the previous passwords"
-console.log(validPassword("NewPass1$", previousPasswords));     // password is valid
+describe('validPassword',()=>{
+     const previousPasswords = ["Password123!", "abcDE1$", "Valid1$"];
+     test('should return error if password have less then 5 character',()=>{
+          expect(validPassword("Ab1$", previousPasswords)).toBe("Error: Password must have at least 5 characters");
+     })
+     test('should return error if password does not contain at least one uppercase letter', () => {
+    expect(validPassword('abcdef1$', previousPasswords)).toBe("Error: Password must contain at least one uppercase letter (A-Z)");
+  });
+
+  test('should return error if password does not contain at least one lowercase letter', () => {
+    expect(validPassword('ABCDE1$', previousPasswords)).toBe("Error: Password must contain at least one lowercase letter (a-z)");
+  });
+
+  test('should return error if password does not contain at least one number', () => {
+    expect(validPassword('ABCDE!', previousPasswords)).toBe("Error: Password must contain at least one number(0-9)");
+  });
+  test('should return error if password does not contain at least one non-alphanumeric symbol', () => {
+    expect(validPassword('Abcde123', previousPasswords)).toBe("Error: password at least one non-alphanumeric symbol");
+  });
+
+  test('should return error if password is a previous password', () => {
+    expect(validPassword('Password123!', previousPasswords)).toBe("Error: Password must not be any of the previous passwords");
+  });
+
+  test('should return valid message if password meets all criteria', () => {
+    expect(validPassword('NewPass1$', previousPasswords)).toBe("Password is valid");
+  });
+})
+// const previousPasswords = ["Password123!", "abcDE1$", "Valid1$"];
+// console.log(validPassword("Abcde", previousPasswords));         // "Error: Password must contain at least one number (0-9)"
+// console.log(validPassword("ABCDE", previousPasswords));         // "Error: Password must contain at least one lowercase letter (a-z)"
+// console.log(validPassword("abcd1", previousPasswords));         // "Error: Password must have at least 5 characters"
+// console.log(validPassword("Valid1$", previousPasswords));       // "Error: Password must not be any of the previous passwords"
+// console.log(validPassword("lowercase1$", previousPasswords));   // "Error: Password must contain at least one uppercase letter (A-Z)"
+// console.log(validPassword("12345!", previousPasswords));        // "Error: Password must contain at least one uppercase letter (A-Z)"
+// console.log(validPassword("Valid1$", previousPasswords));       // "Error: Password must not be any of the previous passwords"
+// console.log(validPassword("NewPass1$", previousPasswords));     // password is valid

@@ -24,29 +24,38 @@ function countChar(str,char){
   }
   return count;
 }
-console.log(countChar("aaaaa","a"));  // Expected output :5
-console.log(countChar("banana", "a")); // Expected output: 3
+describe('countChar',()=>{
+  test('should return correct count for a specific character',()=>{
+    expect(countChar('aaaaa','a')).toBe(5);
+    expect(countChar('banana', 'a')).toBe(3);
+    expect(countChar('hello','z')).toBe(0);
+    expect(countChar('world','a')).toBe(0);
+    expect(countChar(" ","a")).toBe(0);
+  })
+})
+// console.log(countChar("aaaaa","a"));  // Expected output :5
+// console.log(countChar("banana", "a")); // Expected output: 3
 
 // Scenario: No Occurrences
-console.log(countChar("hello", "z")); // Expected output: 0
-console.log(countChar("world", "a")); // Expected output: 0
+// console.log(countChar("hello", "z")); // Expected output: 0
+// console.log(countChar("world", "a")); // Expected output: 0
 
-// Edge cases
-console.log(countChar("", "a"));       // Expected output: 0 (empty string)
-console.log(countChar("a", "a"));      // Expected output: 1 (single character match)
-console.log(countChar("AaAaA", "A")); 
+// // Edge cases
+// console.log(countChar("", "a"));       // Expected output: 0 (empty string)
+// console.log(countChar("a", "a"));      // Expected output: 1 (single character match)
+// console.log(countChar("AaAaA", "A")); 
 
-// assertions
-console.assert(countChar("aaaaa", "a") === 5, "Test 1 Failed: Expected 5 for input ('aaaaa', 'a')");
-console.assert(countChar("banana", "a") === 3, "Test 2 Failed: Expected 3 for input ('banana', 'a')");
+// // assertions
+// console.assert(countChar("aaaaa", "a") === 5, "Test 1 Failed: Expected 5 for input ('aaaaa', 'a')");
+// console.assert(countChar("banana", "a") === 3, "Test 2 Failed: Expected 3 for input ('banana', 'a')");
 
-// Scenario: No Occurrences
-console.assert(countChar("hello", "z") === 0, "Test 3 Failed: Expected 0 for input ('hello', 'z')");
-console.assert(countChar("world", "a") === 0, "Test 4 Failed: Expected 0 for input ('world', 'a')");
+// // Scenario: No Occurrences
+// console.assert(countChar("hello", "z") === 0, "Test 3 Failed: Expected 0 for input ('hello', 'z')");
+// console.assert(countChar("world", "a") === 0, "Test 4 Failed: Expected 0 for input ('world', 'a')");
 
-// Edge cases
-console.assert(countChar("", "a") === 0, "Test 5 Failed: Expected 0 for empty string input ('', 'a')");
-console.assert(countChar("a", "a") === 1, "Test 6 Failed: Expected 1 for input ('a', 'a')");
-console.assert(countChar("AaAaA", "A") === 3, "Test 7 Failed: Expected 3 for case-sensitive input ('AaAaA', 'A')");
+// // Edge cases
+// console.assert(countChar("", "a") === 0, "Test 5 Failed: Expected 0 for empty string input ('', 'a')");
+// console.assert(countChar("a", "a") === 1, "Test 6 Failed: Expected 1 for input ('a', 'a')");
+// console.assert(countChar("AaAaA", "A") === 3, "Test 7 Failed: Expected 3 for case-sensitive input ('AaAaA', 'A')");
 
-console.log("All tests passed!");
+// console.log("All tests passed!");

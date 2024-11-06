@@ -15,12 +15,12 @@ function creditCard(value){
       return "Invalid: Sum of all digits must be greater than 16";
     }
       return "Valid credit card number";
-
 }
+module.exports = creditCard
 // Example tests
-console.log(creditCard("9999777788880000")); // "Valid credit card number"
-console.log(creditCard("6666666666661666")); // "Valid credit card number"
-console.log(creditCard("a92332119c011112")); // "Invalid: Must be 16 digits and all numbers"
-console.log(creditCard("4444444444444444")); // "Invalid: Must contain at least two different digits"
-console.log(creditCard("1111111111111110")); // "Invalid: Sum of all digits must be greater than 16"
-console.log(creditCard("6666666666666661")); //  "Invalid: Final digit must be even"
+// console.log(creditCard("9999777788880000")); // "Valid credit card number"
+// console.log(creditCard("6666666666661666")); // "Valid credit card number"
+// console.log(creditCard("a92332119c011112")); // "Invalid: Must be 16 digits and all numbers"
+// console.log(creditCard("4444444444444444")); // "Invalid: Must contain at least two different digits"
+// console.log(creditCard("1111111111111110")); // "Invalid: Sum of all digits must be greater than 16"
+// console.log(creditCard("6666666666666661")); //  "Invalid: Final digit must be even"
